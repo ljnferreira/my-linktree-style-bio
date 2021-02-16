@@ -33,8 +33,19 @@ async function addProjectLinks(){
   githubData.map(
     (repo) =>{
       let link = document.createElement('a');
+      let icon = document.createElement('i');
+      let text = document.createElement('span');
+
+      icon.classList.add('fab');
+      icon.classList.add('fa-github');
+
+      text.classList.add('link-span')
+
+      text.innerText = repo.name;
       link.href = repo.url;
-      link.innerText = repo.name;
+      
+      link.appendChild(icon);
+      link.appendChild(text);
       projects.appendChild(link);
     }
   );
